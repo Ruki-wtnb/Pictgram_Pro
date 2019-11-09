@@ -39,8 +39,8 @@ class ImageUploader < CarrierWave::Uploader::Base
      %w(jpg jpeg png)
   end
   
-  def size_limit
-   1..10.megabytes
+  def size_range
+    0..10.megabytes
   end
 
   # Override the filename of the uploaded files:

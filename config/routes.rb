@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'topics/new'
+
   get 'sessions/new'
   root 'pages#index'
   get 'pages/help'
