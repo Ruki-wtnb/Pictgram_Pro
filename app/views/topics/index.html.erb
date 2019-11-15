@@ -12,11 +12,15 @@
           <%= image_tag topic.image.url %>
           <% if !topic.favorite_users.include?(current_user) %>
           <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-          <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+          <span class="blank-heart">&#9825;</span>
           <% end %>
           
           <% else %>
-          <%= image_tag 'icons/filled-heart.png', class: 'topic-index-icon' %>
+
+           <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+          <span class="filled-heart">&#9829;</span>
+          <% end %>
+          
           <% end %>
           
           <span>
@@ -27,6 +31,7 @@
           <p class="topic-text">
             <%= topic.description %>
           </p>
+          
           
         </div>
       </div>
