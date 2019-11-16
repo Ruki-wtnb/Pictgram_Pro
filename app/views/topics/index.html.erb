@@ -24,7 +24,7 @@
           <% end %>
           
           <span>
-            <%= Favorite.where(topic_id: topic.id).count %>
+            <%= topic.favorites.count %>
           </span>
           
           <%= image_tag 'icons/comment.png', class:'topic-index-icon' %>
