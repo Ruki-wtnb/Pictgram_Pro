@@ -17,6 +17,7 @@ class FavoritesController < ApplicationController
     
   end
   
+  
   def destroy
     favorite = Favorite.find_by(user_id: current_user.id, topic_id: params[:topic_id])
     
