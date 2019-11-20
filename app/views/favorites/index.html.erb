@@ -27,10 +27,21 @@
           <span>
             <%= topic.favorites.count %>
           </span>
+          
+          <%= link_to comments_path(user_id: current_user.id, topic_id: topic.id), method: :get do %>
           <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+          <% end %>
+          
           <p class="topic-text">
             <%= topic.description %>
           </p>
+          
+          <div class="comment-title">コメント</div>
+          <% topic.comments.each do |c| %>
+          <div class="comment">
+          <%= c.comment %>
+          </div>
+          <% end %>
             
         </div>
       </div>
