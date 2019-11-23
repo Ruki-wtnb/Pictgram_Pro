@@ -9,12 +9,12 @@ class CommentsController < ApplicationController
   end
   
   def create
-    comment = Comment.new(user_id: current_user.id,topic_id: params[:comment][:topic_id], comment: params[:comment][:comment])
+    comment = Comment.new(user_id: current_user.id,topic_id: comment_params[:topic_id], comment: comment_params[:comment])
     
   #binding.pry
     
     if comment.save!
-      redirect_to topics_path, success: 'コメントを投稿しました'
+      redirect_to comment_params[:back_url], success: 'コメントを投稿しました'
     else
       flash.now[:danger] = 'コメントが投稿できませんでした'
       
@@ -22,5 +22,10 @@ class CommentsController < ApplicationController
     end
   end
   
+  
+  private
+  def comment_params
+    params.require(:comment).permit(:topic_id, :comment, :back_url)
+  end
   
 end

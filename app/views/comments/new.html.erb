@@ -20,6 +20,10 @@
             <%= f.hidden_field :topic_id, value: @comment.topic_id %>
           </div>
           
+          <div class="form-group">
+            <%= f.hidden_field :back_url, value: request.referer %>
+          </div>
+          
           <%= f.submit "コメント", class: 'btn-block btn-black' %>
           <% end %>
           
