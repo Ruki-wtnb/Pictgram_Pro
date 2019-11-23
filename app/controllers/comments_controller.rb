@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     if comment.save!
       redirect_to comment_params[:back_url], success: 'コメントを投稿しました'
     else
-      flash.now[:danger] = 'コメントが投稿できませんでした'
+      flash.now[:danger] = 'コメントを投稿できませんでした'
       
       render :new
     end
