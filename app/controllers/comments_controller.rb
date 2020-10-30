@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(user_id: current_user.id,topic_id: comment_params[:topic_id], comment: comment_params[:comment])
     
-  #binding.pry
+  binding.pry
     
     if comment.save!
       redirect_to comment_params[:back_url], success: 'コメントを投稿しました'
